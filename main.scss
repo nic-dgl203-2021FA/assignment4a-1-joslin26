@@ -1,15 +1,15 @@
+@import './resets';
+@import './variables';
 
-$primary-color: #272727;
-$accent-color: #ff652f;
-$text-color: #fff;
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
 
-
-$font-weights: (
-    "regular": 400,
-    "medium": 500,
-    "bold": 700
-);
-
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 body {
     background:$primary-color;
@@ -17,15 +17,15 @@ body {
 }
 
 .main {
+    @include flexCenter;
     width: 80%;
     margin: 0 auto; 
 
     #{&}_paragraph {
-        font-weight: map-get($font-weights, bold);
+        font-weight: weight(bold);
 
         &:hover {
             color: pink;
         }
     }
 }
-
